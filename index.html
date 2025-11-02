@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para mi Osmar ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+
+<body>
+    <!-- Música de fondo -->
+    <audio id="bg-music" src="music/fondo.mp3" autoplay loop></audio>
+
+
+    <!-- Fondo de corazones -->
+    <div id="hearts"></div>
+    <!-- Burbujas de frases -->
+    <div id="bubbles"></div>
+
+
+    <!-- Pantalla de inicio -->
+    <div class="intro">
+        <h1>💖 Hola, mi niño 💖</h1>
+        <p>Toca para descubrir que hay</p>
+        <button id="startBtn">Ver ❤️</button>
+    </div>
+
+    <!-- Carta -->
+    <div class="card hidden" id="card">
+        <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="letter">
+                <h2>Feliz cumpleaños 🎂</h2>
+                <p>
+                    Hoy quiero recordarte lo mucho que te quiero y lo agradecida que estoy de tenerte.
+                    Eres mi razón de sonreír cada día ❤️
+                    Gracias por existir y por ser tú.
+                    ¡Feliz cumpleaños, corazon de melon! 🎈
+                </p>
+                <p class="signature">Con todo mi amor, <br><strong>Te Amo 💋</strong></p>
+            </div>
+        </div>
+    </div>
+    <!-- Carrusel 3D -->
+    <section id="carrusel" data-aos="zoom-in-up">
+
+        <div class="carousel">
+            <div class="carousel__container">
+                <div class="carousel__item" data-text="Mi bebé hermoso 💕"><img src="img/foto.jpeg" alt="Recuerdo 1">
+                </div>
+                <div class="carousel__item" data-text="Mi persona favorita ❤️"><img src="img/imagen.jpg"
+                        alt="Recuerdo 2"></div>
+                <div class="carousel__item" data-text="Mi niño precioso 💋"><img src="img/foto1.jpeg" alt="Recuerdo 3">
+                </div>
+                <div class="carousel__item" data-text="Mi razón de sonreír 😍"><img src="img/imagen1.jpg"
+                        alt="Recuerdo 4"></div>
+                <div class="carousel__item" data-text="El niño que me gusta 💞"><img src="img/foto2.jpeg"
+                        alt="Recuerdo 5"></div>
+
+                <div class="carousel__item" data-text="El niño que me gusta 💞"><img src="img/goku.jpg"
+                        alt="Recuerdo 5"></div>
+            </div>
+        </div>
+    </section>
+    <section id="poemas" data-aos="zoom-in-up">
+        <h2>💌 Poemas para ti 💌</h2>
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Me tienes 💖</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>
+                            Me tienes y no lo sabes,
+                            pero cada pensamiento mío es tuyo,
+                            cada gesto, cada suspiro,
+                            cada espacio vacío que antes no existía.
+                            Me tienes cuando no estás,
+                            y me pierdo en la idea de tu presencia.
+                            Me tienes en la risa y en el llanto,
+                            en la desesperanza y en la ternura.
+                            Me tienes y no hay remedio,
+                            porque el amor que te ofrezco
+                            es más grande que mi voluntad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Te quiero 💕</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>
+                            Te quiero porque te siento en cada instante,
+                            en cada silencio,
+                            en cada palabra que no llego a decir.
+                            Te quiero porque no hay otra manera
+                            de sostener este corazón que se rompe,
+                            que se enciende,
+                            que te busca incluso cuando no estás.
+                            Te quiero con la fuerza de lo inevitable,
+                            con la paciencia de lo que sabe esperar,
+                            con la certeza de que amarte
+                            es lo único que no cambiará.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Ebrio de amor 💋</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>
+                            Estoy ebrio de tu cuerpo,
+                            de tu risa, de tu respiración,
+                            de todo lo que no puedo tocar
+                            sin sentir que me quemo por dentro.
+                            Estoy ebrio de tu presencia,
+                            de la manera en que llenas los espacios vacíos,
+                            de la manera en que haces que el mundo
+                            parezca menos frío, menos hostil.
+                            Estoy ebrio de ti
+                            y me gustaría permanecer así,
+                            perdido en ti,
+                            para siempre.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  video -->
+    <section id="videoSection" data-aos="zoom-in-up">
+        <!-- Video a la izquierda -->
+        <div class="video-left">
+            <video width="100%" height="100%" autoplay muted loop controls>
+                <source src="videos/video_osmar.mp4" type="video/mp4">
+                Tu navegador no soporta video HTML5.
+            </video>
+        </div>
+        <div class="content-right">
+            <h2>Para ustede precioso 🎁</h2>
+            <p>Un pequeño detalle para recordarte lo especial que eres...</p>
+        </div>
+        <div class="content-right">
+            <h2>El niño mas bonito del mundo 📸</h2>
+            <div class="album">
+                <div class="photo"><img src="img/foto.jpeg" alt=""></div>
+                <div class="photo"><img src="img/foto1.jpeg" alt=""></div>
+                <div class="photo"><img src="img/foto2.jpeg" alt=""></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- formas de canciones -->
+    <section class="spotify-section elegant">
+        <h2>🎧 Mis canciones para ti</h2>
+        <div class="spotify-gallery">
+          <div class="spotify-card" onclick="window.open('https://open.spotify.com/intl-es/track/7kWFRZdedr2gtfE8JDumVZ?si=7461cfd6d6c54740')">
+            <img src="img/Ropa_bazar.jpg" alt="Canción 1">
+            <!-- <p>“Contigo todo es mejor” – <i>Morat</i></p> -->
+          </div>
+          <div class="spotify-card" onclick="window.open('https://open.spotify.com/intl-es/track/4PpuZIMmeng6qPicveSI22?si=6c03e48537ed44e1')">
+            <img src="img/beso.jpg" alt="Canción 2">
+            <!-- <p>“Te amo lento” – <i>Reik</i></p> -->
+          </div>
+          <div class="spotify-card" onclick="window.open('https://open.spotify.com/intl-es/track/4DhTBCvoemYivBVHkk7RKI?si=78ef5ef6b2a540b4')">
+            <img src="img/Cafuné.jpg" alt="Canción 3">
+            <!-- <p>“Eres mi sol” – <i>Camila</i></p> -->
+          </div>
+          <div class="spotify-card" onclick="window.open('https://open.spotify.com/intl-es/track/1RQkKTyJZhFERJy6t5gIbv?si=ddbd803c79c5477a')">
+            <img src="img/kevin.jpg" alt="Canción 4">
+            <!-- <p>“Perfect” – <i>Ed Sheeran</i></p> -->
+          </div>
+        </div>
+      </section>
+
+
+   
+
+    <!-- Carta parte 2 -->
+    <section id="carta2" data-aos="zoom-in-up">
+        <h2>💋 Un pedacito de mí💋</h2>
+        <p id="typeText"></p>
+    </section>
+
+ <!-- Transición final -->
+ <section id="final" data-aos="zoom-in-up">
+    <h2>🎇 Un final tan bonito como tú 🎇</h2>
+    <button id="finalBtn">Ver magia ✨</button>
+    <div id="finalEfecto"></div>
+    <!-- <div id="finalOverlay"></div> -->
+</section>s
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+</body>
+
+</html>

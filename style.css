@@ -1,0 +1,691 @@
+/* body {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  body {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  /* Esto hace que las secciones se vean una debajo de otra */
+  section, .intro, .card {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .intro {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+  }
+  
+  button {
+    background-color: #e60026;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff3355;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* .hidden {
+    display: none;
+  } */
+  .hidden {
+    display: none !important;
+  }
+  
+  
+  /* Carta */
+  /* .card {
+    position: relative;
+    text-align: center;
+  } */
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+  }
+  
+  /* .envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #b22222;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  } */
+  .envelope {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    background-color: #b22222;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 20px rgba(255, 100, 120, 0.7);
+  }
+  
+  .envelope .flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #8b0000;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transition: transform 0.6s ease;
+  }
+  
+  .envelope.open .flap {
+    transform: rotateX(180deg);
+  }
+  
+  /* .letter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    transform: translateY(0);
+    opacity: 0;
+    transition: all 0.8s ease;
+  } */
+  .letter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    transform: translateY(0);
+    opacity: 0;
+    transition: all 0.8s ease;
+    box-shadow: 0 0 10px rgba(255, 100, 120, 0.5);
+  }
+  
+  .envelope.open .letter {
+    transform: translateY(-180px);
+    opacity: 1;
+  }
+  
+  .signature {
+    margin-top: 15px;
+    font-style: italic;
+    color: #e60026;
+  }
+  
+  /* Corazones flotantes */
+  #hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .heart {
+    position: absolute;
+    color: #ff5c8d;
+    font-size: 20px;
+    opacity: 0.8;
+    animation: float 6s infinite ease-in;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1.5);
+      opacity: 0;
+    }
+  }
+  /* ==== Carrusel 3D ==== */
+#carrusel {
+    text-align: center;
+    margin-top: 150px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  #carrusel h2 {
+    font-size: 2em;
+    color: #ff5c8d;
+    margin-bottom: 30px;
+  }
+  #carrusel {
+    margin-top: 200px; /* para que esté más abajo al hacer scroll */
+  }
+  
+  .carousel {
+    perspective: 1000px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .carousel__container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotate 20s infinite linear;
+  }
+  
+  .carousel__item {
+    position: absolute;
+    width: 180px;
+    height: 250px;
+    left: 60px;
+    top: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+  
+  /* Para una iluminación linda */
+  .carousel__item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.5));
+  }
+  
+  /* Efecto de hover */
+  .carousel__item:hover {
+    transform: scale(1.1);
+  }
+  /* ==== Texto sobre la tarjeta ==== */
+.carousel__item::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px #ff6699;
+  }
+  
+  .carousel__item:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Cuando el mouse pasa, se detiene la animación */
+  .carousel__container:hover {
+    animation-play-state: paused;
+  }
+  
+
+  /* ==== Transición final ==== */
+  /* #final {
+    text-align: center;
+    margin-top: 150px;
+  }
+  
+  #final h2 {
+    color: #ffcccb;
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  #finalEfecto {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  } */
+  /* === Pantalla final === */
+#final {
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+#final h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #ff5c8d;
+}
+
+#final button {
+    background-color: #e60026;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff3355;
+    transition: all 0.3s ease;
+}
+
+#final button:hover {
+    transform: scale(1.1);
+}
+
+#finalEfecto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#finalMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #ff5c8d;
+    text-align: center;
+    opacity: 0;
+    z-index: 2;
+}
+
+
+  
+  /* ==== Carta Parte 2 ==== */
+  /* === Carta Parte 2 === */
+#carta2 {
+    text-align: center;
+    font-size: 1.3em;
+    padding: 60px 20px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    position: relative;
+  }
+  
+  /* Efecto máquina de escribir */
+  #typeText {
+    white-space: pre-line; /* respeta los saltos de línea */
+    display: inline-block;
+    border-right: 3px solid #ff5c8d;
+    animation: blinkCursor 0.7s steps(1) infinite;
+  }
+  
+  @keyframes blinkCursor {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  /* Corazón latiendo */
+  .heartbeat {
+    display: inline-block;
+    font-size: 2rem;
+    margin-left: 10px;
+    animation: heartbeat 1.2s infinite;
+  }
+  
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.2);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    75% {
+      transform: scale(1.3);
+    }
+  }
+  
+  /* #carta2 {
+    text-align: center;
+    margin-top: 150px;
+  }
+  
+  #carta2 h2 {
+    color: #ff5c8d;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  #typeText {
+    font-size: 22px;
+    width: 80%;
+    margin: 0 auto;
+    color: #fff;
+    border-right: 3px solid #ff5c8d;
+    white-space: nowrap;
+    overflow: hidden;
+  } */
+  
+
+
+  /* ==== Burbujas de texto flotante ==== */
+#bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; /* debajo de las secciones pero encima del fondo */
+  pointer-events: none; /* para que no bloqueen clicks */
+}
+
+.bubble {
+  position: absolute;
+  bottom: -40px;
+  font-size: 22px;
+  color: #ff99cc;
+  opacity: 0.9;
+  animation: riseBubble 7s linear forwards;
+  text-shadow: 0 0 10px #ff6699;
+  font-weight: bold;
+  font-family: 'Dancing Script', cursive;
+}
+
+@keyframes riseBubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}
+/* ********** POEMAS ****************** */
+#poemas {
+    text-align: center;
+    padding: 50px 20px;
+    background: #000;
+    color: #fff;
+  }
+  
+  #poemas h2 {
+    font-size: 2em;
+    color: #ff6699;
+    margin-bottom: 40px;
+  }
+  
+  /* Contenedor de tarjetas */
+  .flip-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+  }
+  
+  /* Tarjeta flip */
+  .flip-card {
+    background-color: transparent;
+    width: 250px;
+    height: 300px;
+    perspective: 1000px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Frente y dorso */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  }
+  
+  .flip-card-front {
+    background-color: #b22222; /* rojo */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff6699;
+    box-shadow: 0 0 20px #ff4d6d, 0 0 40px #ff1a3c inset;
+    transition: all 0.3s ease;
+  }
+  .flip-card-front:hover {
+    box-shadow: 0 0 30px #ff4d6d, 0 0 60px #ff1a3c inset;
+    transform: scale(1.05);
+  }
+  
+  
+  .flip-card-back {
+    background-color: #ffccd5;
+    color: #000;
+    transform: rotateY(180deg);
+    font-size: 16px;
+    text-align: left;
+    overflow-y: auto;
+    box-shadow: 0 0 20px #ff6699, 0 0 40px #ff1a3c inset;
+  }
+  
+/* ************ video ************************** */
+
+#videoSection {
+    display: flex;
+    flex-wrap: wrap; /* Para que en móvil se apile */
+    width: 100%;
+    min-height: 100vh;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .video-left, .content-right {
+    flex: 1;
+    min-width: 300px;
+    height: 70vh; /* Ocupa buena parte de la pantalla */
+  }
+  
+  .content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+    color: white;
+  }
+/* gift canva   */
+.mini-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+/* album vintage   */
+.content-right {
+    width: 45%;
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+  }
+  
+  .content-right h2 {
+    font-size: 2em;
+    color: #ff80b5;
+    text-shadow: 0 0 10px #ff4d94, 0 0 20px #ff1a75;
+    margin-bottom: 10px;
+  }
+  
+  .content-right p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .album {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 500px;
+  }
+  
+  .photo {
+    background: #fff;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transform: rotate(-3deg);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  
+  .photo:nth-child(2n) {
+    transform: rotate(3deg);
+  }
+  
+  .photo img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+  
+  .photo:hover {
+    transform: scale(1.1) rotate(0deg);
+    box-shadow: 0 0 15px rgba(255, 102, 153, 0.8);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .album::before {
+    content: "✨";
+    position: absolute;
+    font-size: 30px;
+    color: #ffb3d9;
+    opacity: 0.7;
+    animation: sparkle 4s infinite ease-in-out;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { transform: translate(0,0) scale(1); opacity: 0.6; }
+    50% { transform: translate(10px, -10px) scale(1.2); opacity: 1; }
+  }
+    
+
+/* canciones   */
+.spotify-section.elegant {
+    text-align: center;
+    margin: 100px 0;
+    color: #fff;
+  }
+  .spotify-section.elegant h2 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: #f8c4c4;
+  }
+  .spotify-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  .spotify-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+    width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .spotify-card img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 100, 100, 0.3);
+  }
+  .spotify-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 20px rgba(255, 120, 120, 0.6);
+  }
+  .spotify-card p {
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #ffdada;
+  }
